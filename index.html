@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-filled Form</title>
+    <script>
+        // Function to prefill the form fields with URL query parameters
+        function prefillForm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('name').value = urlParams.get('name') || "";
+            document.getElementById('email').value = urlParams.get('email') || "";
+        }
+    </script>
+</head>
+<body onload="prefillForm()">
+    <h1>Form with Pre-filled Data</h1>
+    <form action="/submit" method="get">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
